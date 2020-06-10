@@ -79,7 +79,7 @@ mix test
 
 Copyright 2019, [Software Mansion]
 
-[![Software Mansion](https://membraneframework.github.io/static/logo/swm_logo_readme.png)][Software Mansion]
+[![Software Mansion](https://logo.swmansion.com/logo?color=white&variant=desktop&width=200&tag=membrane-github)][Software Mansion]
 
 Licensed under the [Apache License, Version 2.0](LICENSE)
 
