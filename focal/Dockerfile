@@ -13,6 +13,7 @@ RUN apt-get update \
     autoconf \
     automake \
     build-essential \
+    clang-format \
     curl \
     gcc-9 \
     git \
