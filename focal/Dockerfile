@@ -92,6 +92,7 @@ RUN apt-get update \
     libswresample-dev \
     libswscale-dev \
     portaudio19-dev \
+    libsrtp2-dev \
  && rm -rf /var/lib/apt/lists/* \
  # fdk-aac
  && cd /tmp/ \
