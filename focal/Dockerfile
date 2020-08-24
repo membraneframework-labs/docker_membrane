@@ -76,7 +76,7 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
 # Multimedia libraries
 RUN apt-get update \
  && apt-get install -y \
-    ffmpeg=7:4.2.2-1ubuntu1 \
+    ffmpeg \
     libavcodec-dev \
     libavdevice-dev \
     libavfilter-dev \
