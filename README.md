@@ -26,6 +26,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | FLAC      | 1.3.2         | 1.3.2  |
 | Opus      | 1.1.2         | 1.1.2  |
 | libsrtp2  | -             | 2.3.0  |
+| libnice   | -             | master |
 
 ### Version selection
 

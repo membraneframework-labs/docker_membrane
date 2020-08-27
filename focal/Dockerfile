@@ -18,6 +18,7 @@ RUN apt-get update \
     gcc-9 \
     git \
     libffi-dev \
+    libglib2.0-dev \
     libncurses-dev \
     libreadline-dev \
     libssl-dev \
@@ -25,12 +26,23 @@ RUN apt-get update \
     libxslt-dev \
     libyaml-dev \
     locales \
+    meson \
+    ninja-build \
     unixodbc-dev \
     unzip \
     wget \
  && rm -rf /var/lib/apt/lists/* \
  && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
  && git clone https://github.com/asdf-vm/asdf.git /root/.asdf -b v0.7.8
+
+# libnice
+RUN git clone https://github.com/libnice/libnice.git \
+ && cd libnice/ \
+ && meson builddir \
+ && ninja -C builddir \
+ && ninja -C builddir test \
+ && ninja -C builddir install \
+ && cd /
 
 ENV LANG en_US.utf8
 
