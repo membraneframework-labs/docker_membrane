@@ -14,19 +14,19 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 
 ## Package versions
 
-| Package   | bionic        | focal  |
-| --------- | ------------- | ------ |
-| Erlang    | 21.3 and 22.2 | 22.3   |
-| Elixir    | 1.9.4         | 1.10.3 |
-| FFmpeg    | 4.2.2         | 4.2.2  |
-| SDL2      | ?             | ?      |
-| FDK AAC   | 2.0           | 2.0    |
-| Portaudio | 19.6.0        | 19.6.0 |
-| MAD       | 0.15.1        | 0.15.1 |
-| FLAC      | 1.3.2         | 1.3.2  |
-| Opus      | 1.1.2         | 1.1.2  |
-| libsrtp2  | -             | 2.3.0  |
-| libnice   | -             | master |
+| Package   | bionic        | focal            |
+| --------- | ------------- | -----------------|
+| Erlang    | 21.3 and 22.2 | 22.3             |
+| Elixir    | 1.9.4         | 1.10.3           |
+| FFmpeg    | 4.2.2         | 4.2.2            |
+| SDL2      | ?             | ?                |
+| FDK AAC   | 2.0           | 2.0              |
+| Portaudio | 19.6.0        | 19.6.0           |
+| MAD       | 0.15.1        | 0.15.1           |
+| FLAC      | 1.3.2         | 1.3.2            |
+| Opus      | 1.1.2         | 1.1.2            |
+| libsrtp2  | -             | 2.3.0  	       |
+| libnice   | -             | master (833c1aa) |
 
 ### Version selection
 

@@ -36,8 +36,12 @@ RUN apt-get update \
  && git clone https://github.com/asdf-vm/asdf.git /root/.asdf -b v0.7.8
 
 # libnice
+# Building from source has been choosen because of potential bug described in
+# https://gitlab.freedesktop.org/libnice/libnice/-/issues/120. Even after fixing it the new version
+# will not probably be available in apt repositories for some time.
 RUN git clone https://github.com/libnice/libnice.git \
  && cd libnice/ \
+ && git checkout 833c1aa4cc442f2e25216dc411651a674d36c09a \
  && meson builddir \
  && ninja -C builddir \
  && ninja -C builddir test \
