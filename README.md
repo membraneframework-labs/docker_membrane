@@ -3,7 +3,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/membrane/membrane)][docker-hub]
 [![GitHub forks](https://img.shields.io/github/forks/membraneframework/docker-membrane?style=social)][github]
 
-A Docker image based on Ubuntu, with Erlang, Elixir and libraries necessary to test and run the [Membrane Framework].
+A Docker image based on Ubuntu, with Erlang, Elixir, Node.js and libraries necessary to test and run the [Membrane Framework].
 
 ## Image variants
 
@@ -18,6 +18,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | --------- | ------------- | -----------------|
 | Erlang    | 21.3 and 22.2 | 23.3.1           |
 | Elixir    | 1.9.4         | 1.11.3           |
+| Node.js   | -             | 14.16.1          |
 | FFmpeg    | 4.2.2         | 4.2.2            |
 | SDL2      | ?             | ?                |
 | FDK AAC   | 2.0           | 2.0              |
@@ -30,14 +31,14 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 
 ### Version selection
 
-These images contain multiple Erlang and Elixir versions, managed with [asdf]. You can specify which one should be selected by running: `asdf global erlang <version>` or `asdf global elixir <version>` in your script.
+These images contain multiple (Erlang, Elixir, Node.js) versions, managed with [asdf]. You can specify which one should be selected by running: `asdf global erlang <version>` or `asdf global elixir <version>` in your script.
 
 ### Default versions:
 
-| Image  | Erlang | Elixir |
-| ------ | ------ | ------ |
-| focal  | 23.3.1 | 1.11.3 |
-| bionic | 22.2   | 1.9.4  |
+| Image  | Erlang | Elixir | Node.js |
+| ------ | ------ | ------ | ------- |
+| focal  | 23.3.1 | 1.11.3 | 14.16.1 |
+| bionic | 22.2   | 1.9.4  |    -    |
 
 ## Building the image
 

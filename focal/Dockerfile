@@ -88,6 +88,12 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
  && mix local.hex --force \
  && mix local.rebar --force \
  && rm -rf /tmp/*
+ 
+ # Node.js
+ RUN asdf plugin-add nodejs \
+   && asdf install nodejs 14.16.1 \
+   && asdf global nodejs 14.16.1 \
+   && rm -rf /tmp/*
 
 # Multimedia libraries
 RUN apt-get update \
