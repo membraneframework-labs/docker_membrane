@@ -5,6 +5,8 @@
 
 A Docker image based on Ubuntu, with Erlang, Elixir, Node.js and libraries necessary to test and run the [Membrane Framework].
 
+Image has been moved to [membraneframeworklabs/docker_membrane](docker-hub)
+
 ## Image variants
 
 This image comes in many flavours, based on different Ubuntu releases and package versions:
