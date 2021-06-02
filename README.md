@@ -16,8 +16,8 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 
 | Package   | bionic        | focal            |
 | --------- | ------------- | -----------------|
-| Erlang    | 21.3 and 22.2 | 23.3.1           |
-| Elixir    | 1.9.4         | 1.11.3           |
+| Erlang    | 21.3 and 22.2 | 24.0             |
+| Elixir    | 1.9.4         | 1.12.1           |
 | Node.js   | -             | 14.16.1          |
 | FFmpeg    | 4.2.2         | 4.2.2            |
 | SDL2      | ?             | ?                |
@@ -37,7 +37,7 @@ These images contain multiple (Erlang, Elixir, Node.js) versions, managed with [
 
 | Image  | Erlang | Elixir | Node.js |
 | ------ | ------ | ------ | ------- |
-| focal  | 23.3.1 | 1.11.3 | 14.16.1 |
+| focal  | 24.0   | 1.12.1 | 14.16.1 |
 | bionic | 22.2   | 1.9.4  |    -    |
 
 ## Building the image
