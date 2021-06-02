@@ -1,9 +1,11 @@
 # Ubuntu based Membrane Docker image
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/membrane/membrane)][docker-hub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/membraneframeworklabs/docker_membrane)][docker-hub]
 [![GitHub forks](https://img.shields.io/github/forks/membraneframework/docker-membrane?style=social)][github]
 
 A Docker image based on Ubuntu, with Erlang, Elixir, Node.js and libraries necessary to test and run the [Membrane Framework].
+
+Image has been moved to [membraneframeworklabs/docker_membrane](docker-hub)
 
 ## Image variants
 
@@ -90,4 +92,4 @@ Licensed under the [Apache License, Version 2.0](LICENSE)
 [Membrane Framework]: https://membraneframework.org
 [asdf]: https://asdf-vm.com/
 [github]: https://github.com/membraneframework/docker-membrane
-[docker-hub]: https://hub.docker.com/r/membrane/membrane
+[docker-hub]: https://hub.docker.com/r/membraneframeworklabs/docker_membrane
