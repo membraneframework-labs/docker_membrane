@@ -77,14 +77,14 @@ RUN apt-get update \
     xsltproc \
  && rm -rf /var/lib/apt/lists/* \
  && asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git \
- && asdf install erlang 24.0 \
- && asdf global erlang 24.0 \
+ && asdf install erlang 24.1.6 \
+ && asdf global erlang 24.1.6 \
  && rm -rf /tmp/*
 
 # Elixir
 RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
- && asdf install elixir 1.12.1 \
- && asdf global elixir 1.12.1 \
+ && asdf install elixir 1.13.0 \
+ && asdf global elixir 1.13.0 \
  && mix local.hex --force \
  && mix local.rebar --force \
  && rm -rf /tmp/*
