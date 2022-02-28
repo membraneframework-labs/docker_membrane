@@ -1,5 +1,6 @@
 name: Publish Image on DockerHub
 
+# Action is triggered by pushing version tag to master
 on:
   push:
     tags:
@@ -34,7 +35,8 @@ jobs:
       with:
         context: ./focal
         push: true
-        tags: membraneframeworklabs/docker_membrane
+        # Set image name to membraneframeworklabs/docker_membrane:<tag_name>
+        tags: membraneframeworklabs/docker_membrane:${{ github.ref_name }}
         
     -
       name: Update DockerHub Description
