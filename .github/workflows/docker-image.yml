@@ -11,35 +11,31 @@ jobs:
  build:
     runs-on: ubuntu-latest
     steps:
-    - 
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
       
-    -
-      name: Set up QEMU
+    - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
       
-    -
-      name: Set up Docker Buildx
+    - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
       
-    -
-      name: Login to DockerHub
+    - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
         
-    -
-      name: Build and push the image
+    - name: Build and push the image
       uses: docker/build-push-action@v2
       with:
         context: ./focal
         push: true
-        # Set image name to membraneframeworklabs/docker_membrane:<tag_name>
-        tags: membraneframeworklabs/docker_membrane:${{ github.ref_name }}
+        # Set image name to membraneframeworklabs/docker_membrane:<tag_name> and update tag `:latest`
+        tags: |
+          membraneframeworklabs/docker_membrane:${{ github.ref_name }}
+          membraneframeworklabs/docker_membrane:latest
         
-    -
-      name: Update DockerHub Description
+    - name: Update DockerHub Description
       uses: peter-evans/dockerhub-description@v2.4.3
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
