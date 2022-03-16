@@ -115,6 +115,7 @@ RUN apt-get update \
     libswscale-dev \
     portaudio19-dev \
     libsrtp2-dev \
+    libmp3lame-dev \
  && rm -rf /var/lib/apt/lists/* \
  # fdk-aac
  && cd /tmp/ \
