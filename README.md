@@ -30,6 +30,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | Opus      | 1.1.2         | 1.1.2            |
 | libsrtp2  | -             | 2.3.0  	       |
 | libnice   | -             | master (833c1aa) |
+| libmp3lame| -             | 3.100            |
 
 ### Version selection
 
