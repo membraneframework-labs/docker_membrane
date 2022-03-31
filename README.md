@@ -16,21 +16,21 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 
 ## Package versions
 
-| Package   | bionic        | focal            |
-| --------- | ------------- | -----------------|
-| Erlang    | 21.3 and 22.2 | 24.1.6           |
-| Elixir    | 1.9.4         | 1.13.0           |
-| Node.js   | -             | 14.16.1          |
-| FFmpeg    | 4.2.2         | 4.2.2            |
-| SDL2      | ?             | ?                |
-| FDK AAC   | 2.0           | 2.0              |
-| Portaudio | 19.6.0        | 19.6.0           |
-| MAD       | 0.15.1        | 0.15.1           |
-| FLAC      | 1.3.2         | 1.3.2            |
-| Opus      | 1.1.2         | 1.1.2            |
-| libsrtp2  | -             | 2.3.0  	       |
-| libnice   | -             | master (833c1aa) |
-| libmp3lame| -             | 3.100            |
+| Package    | bionic        | focal            |
+| ---------- | ------------- | ---------------- |
+| Erlang     | 21.3 and 22.2 | 24.1             |
+| Elixir     | 1.9.4         | 1.13.0           |
+| Node.js    | -             | 16.13.1          |
+| FFmpeg     | 4.2.2         | 4.2.2            |
+| SDL2       | ?             | ?                |
+| FDK AAC    | 2.0           | 2.0              |
+| Portaudio  | 19.6.0        | 19.6.0           |
+| MAD        | 0.15.1        | 0.15.1           |
+| FLAC       | 1.3.2         | 1.3.2            |
+| Opus       | 1.1.2         | 1.1.2            |
+| libsrtp2   | -             | 2.3.0            |
+| libnice    | -             | master (833c1aa) |
+| libmp3lame | -             | 3.100            |
 
 ### Version selection
 
@@ -41,7 +41,7 @@ These images contain multiple (Erlang, Elixir, Node.js) versions, managed with [
 | Image  | Erlang | Elixir | Node.js |
 | ------ | ------ | ------ | ------- |
 | focal  | 24.0   | 1.12.1 | 14.16.1 |
-| bionic | 22.2   | 1.9.4  |    -    |
+| bionic | 22.2   | 1.9.4  | -       |
 
 ## Building the image
 

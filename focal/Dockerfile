@@ -77,22 +77,22 @@ RUN apt-get update \
     xsltproc \
  && rm -rf /var/lib/apt/lists/* \
  && asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git \
- && asdf install erlang 24.1.6 \
- && asdf global erlang 24.1.6 \
+ && asdf install erlang 24.1 \
+ && asdf global erlang 24.1 \
  && rm -rf /tmp/*
 
 # Elixir
 RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
- && asdf install elixir 1.13.0 \
- && asdf global elixir 1.13.0 \
+ && asdf install elixir 1.13.0-otp-24 \
+ && asdf global elixir 1.13.0-opt-24 \
  && mix local.hex --force \
  && mix local.rebar --force \
  && rm -rf /tmp/*
  
  # Node.js
  RUN asdf plugin-add nodejs \
-   && asdf install nodejs 14.16.1 \
-   && asdf global nodejs 14.16.1 \
+   && asdf install nodejs 16.13.1 \
+   && asdf global nodejs 16.13.1 \
    && rm -rf /tmp/*
 
 # Multimedia libraries
