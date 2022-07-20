@@ -18,7 +18,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 
 | Package   | bionic        | focal            |
 | --------- | ------------- | -----------------|
-| Erlang    | 21.3 and 22.2 | 24.1.6           |
+| Erlang    | 21.3 and 22.2 | 25.0.3           |
 | Elixir    | 1.9.4         | 1.13.0           |
 | Node.js   | -             | 14.16.1          |
 | FFmpeg    | 4.2.2         | 4.2.2            |
