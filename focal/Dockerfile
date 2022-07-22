@@ -77,8 +77,8 @@ RUN apt-get update \
     xsltproc \
  && rm -rf /var/lib/apt/lists/* \
  && asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git \
- && asdf install erlang 24.1.6 \
- && asdf global erlang 24.1.6 \
+ && asdf install erlang 25.0.3 \
+ && asdf global erlang 25.0.3 \
  && rm -rf /tmp/*
 
 # Elixir
