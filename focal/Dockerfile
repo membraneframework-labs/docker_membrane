@@ -95,6 +95,12 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
    && asdf global nodejs 14.16.1 \
    && rm -rf /tmp/*
 
+ # Rust
+ RUN asdf plugin-add rust \
+   && asdf install rust 1.63.0 \
+   && asdf global rust 1.63.0 \
+   && rm -rf /tmp/*
+
 # Multimedia libraries
 RUN apt-get update \
  && apt-get install -y \
