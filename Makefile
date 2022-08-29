@@ -1,6 +1,6 @@
 VERSION ?= latest
-FLAVOR ?= focal
-IMAGE ?= membrane/membrane
+FLAVOR ?= jammy
+IMAGE ?= membraneframeworklabs/docker_membrane
 DIR ?= `pwd`
 
 build:
