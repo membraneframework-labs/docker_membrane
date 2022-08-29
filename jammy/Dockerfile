@@ -35,19 +35,6 @@ RUN apt-get update \
  && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
  && git clone https://github.com/asdf-vm/asdf.git /root/.asdf -b v0.8.0
 
-# libnice
-# Building from source has been choosen because of potential bug described in
-# https://gitlab.freedesktop.org/libnice/libnice/-/issues/120. Even after fixing it the new version
-# will not probably be available in apt repositories for some time.
-RUN git clone https://github.com/libnice/libnice.git \
- && cd libnice/ \
- && git checkout 833c1aa4cc442f2e25216dc411651a674d36c09a \
- && meson builddir \
- && ninja -C builddir \
- && ninja -C builddir test \
- && ninja -C builddir install \
- && cd /
-
 ENV LANG en_US.utf8
 
 # Add ASDF to PATH
