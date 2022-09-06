@@ -91,8 +91,8 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
  
  # Node.js
  RUN asdf plugin-add nodejs \
-   && asdf install nodejs 14.16.1 \
-   && asdf global nodejs 14.16.1 \
+   && asdf install nodejs 16.17.0 \
+   && asdf global nodejs 16.17.0 \
    && rm -rf /tmp/*
 
  # Rust
