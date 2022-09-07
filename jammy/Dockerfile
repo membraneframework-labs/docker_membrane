@@ -121,23 +121,16 @@ RUN apt-get update \
 # OpenGL dependencies - based on https://github.com/thewtex/docker-opengl
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     libgl1-mesa-dri \
-    menu \
-    net-tools \
     openbox \
     python3-pip \
-    sudo \
     supervisor \
-    tint2 \
     x11-xserver-utils \
-    x11vnc \
     xinit \
     xserver-xorg-video-dummy \
-    websockify && \
-    rm -f /usr/share/applications/x11vnc.desktop && \
-    wget https://bootstrap.pypa.io/get-pip.py && \
-    python3 get-pip.py && \
-    pip install git+https://github.com/coderanger/supervisor-stdout && \
-    apt-get -y clean
+ && wget https://bootstrap.pypa.io/get-pip.py \
+ && python3 get-pip.py \
+ && pip install git+https://github.com/coderanger/supervisor-stdout \
+ && apt-get -y clean
 
 COPY etc/skel/.xinitrc /etc/skel/.xinitrc
 
