@@ -132,47 +132,6 @@ RUN apt-get update \
  && cd / \
  && rm -rf /tmp/*
 
-
-# OpenGL dependencies - based on https://github.com/thewtex/docker-opengl
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  libgl1-mesa-dri \
-  menu \
-  net-tools \
-  openbox \
-  python3-pip \
-  sudo \
-  supervisor \
-  tint2 \
-  x11-xserver-utils \
-  x11vnc \
-  xinit \
-  xserver-xorg-video-dummy \
-  xserver-xorg-input-void \
-  websockify && \
-  rm -f /usr/share/applications/x11vnc.desktop && \
-  wget https://bootstrap.pypa.io/get-pip.py && \
-  python3 get-pip.py && \
-  pip install git+https://github.com/coderanger/supervisor-stdout && \
-  apt-get -y clean
-
-COPY etc/skel/.xinitrc /etc/skel/.xinitrc
-
-RUN useradd -m -s /bin/bash user
-USER user
-
-RUN cp /etc/skel/.xinitrc /home/user/
-USER root
-RUN echo "user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/user
-
-COPY etc /etc
-COPY usr /usr
-
-ENV DISPLAY :0
-
-WORKDIR /root
-
-# CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
-
 # Set the entrypoint
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
