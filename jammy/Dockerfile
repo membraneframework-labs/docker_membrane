@@ -122,26 +122,20 @@ RUN apt-get update \
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     libgl1-mesa-dri \
     openbox \
-    python3-pip \
     supervisor \
     x11-xserver-utils \
     xinit \
     xserver-xorg-video-dummy \
- && wget https://bootstrap.pypa.io/get-pip.py \
- && python3 get-pip.py \
+    python3-pip \
  && pip install git+https://github.com/coderanger/supervisor-stdout \
  && apt-get -y clean
 
-COPY etc/skel/.xinitrc /etc/skel/.xinitrc
-
-RUN cp /etc/skel/.xinitrc /root/
-
 COPY etc /etc
+COPY /etc/skel/.xinitrc /root/
 COPY usr /usr
 
 ENV DISPLAY :0
 
-# /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 # Set the entrypoint
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
