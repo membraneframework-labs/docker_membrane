@@ -76,17 +76,17 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
  && mix local.rebar --force \
  && rm -rf /tmp/*
  
- # Node.js
- RUN asdf plugin-add nodejs \
-   && asdf install nodejs 14.16.1 \
-   && asdf global nodejs 14.16.1 \
-   && rm -rf /tmp/*
+# Node.js
+RUN asdf plugin-add nodejs \
+ && asdf install nodejs 14.16.1 \
+ && asdf global nodejs 14.16.1 \
+ && rm -rf /tmp/*
 
- # Rust
- RUN asdf plugin-add rust \
-   && asdf install rust 1.63.0 \
-   && asdf global rust 1.63.0 \
-   && rm -rf /tmp/*
+# Rust
+RUN asdf plugin-add rust \
+ && asdf install rust 1.63.0 \
+ && asdf global rust 1.63.0 \
+ && rm -rf /tmp/*  
 
 # Multimedia libraries
 RUN apt-get update \
@@ -118,6 +118,37 @@ RUN apt-get update \
  && cd / \
  && rm -rf /tmp/*
 
+# OpenGL dependencies - based on https://github.com/thewtex/docker-opengl
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    libgl1-mesa-dri \
+    menu \
+    net-tools \
+    openbox \
+    python3-pip \
+    sudo \
+    supervisor \
+    tint2 \
+    x11-xserver-utils \
+    x11vnc \
+    xinit \
+    xserver-xorg-video-dummy \
+    websockify && \
+    rm -f /usr/share/applications/x11vnc.desktop && \
+    wget https://bootstrap.pypa.io/get-pip.py && \
+    python3 get-pip.py && \
+    pip install git+https://github.com/coderanger/supervisor-stdout && \
+    apt-get -y clean
+
+COPY etc/skel/.xinitrc /etc/skel/.xinitrc
+
+RUN cp /etc/skel/.xinitrc /root/
+
+COPY etc /etc
+COPY usr /usr
+
+ENV DISPLAY :0
+
+# /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 # Set the entrypoint
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
