@@ -20,7 +20,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | --------- | ------------- | -----------------|------------------|
 | Erlang    | 21.3 and 22.2 | 25.0.3           | 25.0.3           |
 | Elixir    | 1.9.4         | 1.13.0           | 1.13.0           |
-| Node.js   | -             | 14.16.1          | 14.16.1          |
+| Node.js   | -             | 16.17.0          | 16.17.0          |
 | Rust      | -             | 1.63.0           | 1.63.0           |
 | FFmpeg    | 4.2.2         | 4.2.2            | 4.4.2            |
 | SDL2      | ?             | 2.0.10           | 2.0.20           |
@@ -41,8 +41,8 @@ These images contain multiple (Erlang, Elixir, Node.js) versions, managed with [
 
 | Image  | Erlang | Elixir | Node.js |  Rust  |
 | ------ | -------| ------ | ------- | ------ |
-| jammy  | 25.0.3 | 1.13.0 | 14.16.1 | 1.63.0 |
-| focal  | 25.0.3 | 1.13.0 | 14.16.1 | 1.63.0 |
+| jammy  | 25.0.3 | 1.13.0 | 16.17.0 | 1.63.0 |
+| focal  | 25.0.3 | 1.13.0 | 16.17.0 | 1.63.0 |
 | bionic | 22.2   | 1.9.4  |    -    |    -   |
 
 ## Building the image
