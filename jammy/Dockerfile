@@ -76,17 +76,17 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
  && mix local.rebar --force \
  && rm -rf /tmp/*
  
- # Node.js
- RUN asdf plugin-add nodejs \
-   && asdf install nodejs 16.17.0 \
-   && asdf global nodejs 16.17.0 \
-   && rm -rf /tmp/*
+# Node.js
+RUN asdf plugin-add nodejs \
+ && asdf install nodejs 16.17.0 \
+ && asdf global nodejs 16.17.0 \
+ && rm -rf /tmp/*
 
 # Rust
 RUN asdf plugin-add rust \
  && asdf install rust 1.63.0 \
  && asdf global rust 1.63.0 \
- && rm -rf /tmp/*  
+ && rm -rf /tmp/*
 
 # Multimedia libraries
 RUN apt-get update \
