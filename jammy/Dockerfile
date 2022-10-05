@@ -135,6 +135,7 @@ COPY /etc/skel/.xinitrc /root/
 COPY usr /usr
 
 ENV DISPLAY :0
+ENV XDG_RUNTIME_DIR /tmp
 
 # Set the entrypoint
 COPY ./docker-entrypoint.sh /
