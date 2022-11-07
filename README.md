@@ -21,7 +21,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | Erlang    | 21.3 and 22.2 | 25.0.3           |
 | Elixir    | 1.9.4         | 1.13.0           |
 | Node.js   | -             | 14.16.1          |
-| Rust      | -             | 1.63.0           |
+| Rust      | -             | 1.65.0           |
 | FFmpeg    | 4.2.2         | 4.2.2            |
 | SDL2      | ?             | ?                |
 | FDK AAC   | 2.0           | 2.0              |
