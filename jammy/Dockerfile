@@ -76,17 +76,17 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
  && mix local.rebar --force \
  && rm -rf /tmp/*
  
- # Node.js
- RUN asdf plugin-add nodejs \
-   && asdf install nodejs 16.17.0 \
-   && asdf global nodejs 16.17.0 \
-   && rm -rf /tmp/*
+# Node.js
+RUN asdf plugin-add nodejs \
+ && asdf install nodejs 16.17.0 \
+ && asdf global nodejs 16.17.0 \
+ && rm -rf /tmp/*
 
- # Rust
- RUN asdf plugin-add rust \
-   && asdf install rust 1.63.0 \
-   && asdf global rust 1.63.0 \
-   && rm -rf /tmp/*
+# Rust
+RUN asdf plugin-add rust \
+ && asdf install rust 1.63.0 \
+ && asdf global rust 1.63.0 \
+ && rm -rf /tmp/*
 
 # Multimedia libraries
 RUN apt-get update \
@@ -117,6 +117,25 @@ RUN apt-get update \
  && make && make install \
  && cd / \
  && rm -rf /tmp/*
+
+# OpenGL dependencies - based on https://github.com/thewtex/docker-opengl
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    libgl1-mesa-dri \
+    openbox \
+    supervisor \
+    x11-xserver-utils \
+    xinit \
+    xserver-xorg-video-dummy \
+    python3-pip \
+ && pip install git+https://github.com/coderanger/supervisor-stdout \
+ && apt-get -y clean
+
+COPY etc /etc
+COPY /etc/skel/.xinitrc /root/
+COPY usr /usr
+
+ENV DISPLAY :0
+ENV XDG_RUNTIME_DIR /tmp
 
 # Set the entrypoint
 COPY ./docker-entrypoint.sh /
