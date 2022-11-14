@@ -97,8 +97,8 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
 
  # Rust
  RUN asdf plugin-add rust \
-   && asdf install rust 1.63.0 \
-   && asdf global rust 1.63.0 \
+   && asdf install rust 1.65.0 \
+   && asdf global rust 1.65.0 \
    && rm -rf /tmp/*
 
 # Multimedia libraries
