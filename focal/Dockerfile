@@ -122,6 +122,8 @@ RUN apt-get update \
     portaudio19-dev \
     libsrtp2-dev \
     libmp3lame-dev \
+    # inotify-tools for Phoenix live reload \
+    inotify-tools \
  && rm -rf /var/lib/apt/lists/* \
  # fdk-aac
  && cd /tmp/ \
