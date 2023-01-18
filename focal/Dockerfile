@@ -134,6 +134,13 @@ RUN apt-get update \
  && cd / \
  && rm -rf /tmp/*
 
+# Protoc and elixir-protobuf plugin
+# Installing protoc from a binary release to avoid ancient packages of ubuntu
+RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protoc-21.12-linux-x86_64.zip -O protoc.zip \
+  && mkdir -p ~/.local/protoc/ \
+  && unzip protoc.zip -d $HOME/.local/protoc \
+  && echo "export PATH='$PATH:$HOME/.local/protoc/bin'" >> $HOME/.bashrc
+
 # Dockerize
 RUN wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz \
  && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v0.6.1.tar.gz \
