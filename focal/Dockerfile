@@ -139,7 +139,10 @@ RUN apt-get update \
 RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protoc-21.12-linux-x86_64.zip -O protoc.zip \
   && mkdir -p ~/.local/protoc/ \
   && unzip protoc.zip -d $HOME/.local/protoc \
-  && echo "export PATH='$PATH:$HOME/.local/protoc/bin'" >> $HOME/.bashrc
+  && rm protoc.zip \
+  && echo "export PATH='$PATH:$HOME/.local/protoc/bin'" >> $HOME/.bashrc \
+  && mix escript.install hex protobuf --force \
+  && asdf reshim
 
 # Dockerize
 RUN wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz \
