@@ -33,7 +33,7 @@ RUN apt-get update \
     wget \
  && rm -rf /var/lib/apt/lists/* \
  && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
- && git clone https://github.com/asdf-vm/asdf.git /root/.asdf -b v0.8.0
+ && git clone https://github.com/asdf-vm/asdf.git /root/.asdf -b v0.11.2
 
 # libnice
 # Building from source has been choosen because of potential bug described in
@@ -77,8 +77,8 @@ RUN apt-get update \
     xsltproc \
  && rm -rf /var/lib/apt/lists/* \
  && asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git \
- && asdf install erlang 25.2.1 \
- && asdf global erlang 25.2.1 \
+ && asdf install erlang 25.2.3 \
+ && asdf global erlang 25.2.3 \
  && rm -rf /tmp/*
 
 # Elixir
@@ -88,11 +88,11 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
  && mix local.hex --force \
  && mix local.rebar --force \
  && rm -rf /tmp/*
- 
+
  # Node.js
  RUN asdf plugin-add nodejs \
-   && asdf install nodejs 16.17.0 \
-   && asdf global nodejs 16.17.0 \
+   && asdf install nodejs 18.14.2 \
+   && asdf global nodejs 18.14.2 \
    && rm -rf /tmp/*
 
  # Rust
