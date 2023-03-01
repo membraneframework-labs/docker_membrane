@@ -83,8 +83,8 @@ RUN apt-get update \
 
 # Elixir
 RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
- && asdf install elixir 1.14.3 \
- && asdf global elixir 1.14.3 \
+ && asdf install elixir 1.14.3-otp-25 \
+ && asdf global elixir 1.14.3-otp-25 \
  && mix local.hex --force \
  && mix local.rebar --force \
  && rm -rf /tmp/*
