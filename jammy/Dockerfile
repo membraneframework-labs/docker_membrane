@@ -84,8 +84,8 @@ RUN asdf plugin-add nodejs \
 
 # Rust
 RUN asdf plugin-add rust \
- && asdf install rust 1.63.0 \
- && asdf global rust 1.63.0 \
+ && asdf install rust 1.70.0 \
+ && asdf global rust 1.70.0 \
  && rm -rf /tmp/*
 
 # Multimedia libraries
