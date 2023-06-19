@@ -20,11 +20,11 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | --------- | ------------- | -----------------|------------------|
 | Erlang    | 21.3 and 22.2 | 25.0.3           | 25.0.3           |
 | Elixir    | 1.9.4         | 1.13.0           | 1.13.0           |
-| Node.js   | -             | 16.17.0          | 16.17.0          |
-| Rust      | -             | 1.63.0           | 1.70.0           |
+| Node.js   | -             | 14.16.1          | 16.17.0          |
+| Rust      | -             | 1.65.0           | 1.70.0           |
 | FFmpeg    | 4.2.2         | 4.2.2            | 4.4.2            |
-| SDL2      | ?             | 2.0.10           | 2.0.20           |
-| FDK AAC   | 2.0.0         | 2.0.0            | 2.0.0            |
+| SDL2      | ?             | ?                | 2.0.20           |
+| FDK AAC   | 2.0           | 2.0              | 2.0.0            |
 | Portaudio | 19.6.0        | 19.6.0           | 19.6.0           |
 | MAD       | 0.15.1        | 0.15.1           | 0.15.1           |
 | FLAC      | 1.3.2         | 1.3.2            | 1.3.3            |
@@ -32,6 +32,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | libsrtp2  | -             | 2.3.0  	       | 2.4.2            |
 | libnice   | -             | master (833c1aa) | -                |
 | libmp3lame| -             | 3.100            | 3.100            |
+
 
 ### Version selection
 

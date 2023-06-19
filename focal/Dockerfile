@@ -33,7 +33,7 @@ RUN apt-get update \
     wget \
  && rm -rf /var/lib/apt/lists/* \
  && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
- && git clone https://github.com/asdf-vm/asdf.git /root/.asdf -b v0.8.0
+ && git clone https://github.com/asdf-vm/asdf.git /root/.asdf -b v0.11.2
 
 # libnice
 # Building from source has been choosen because of potential bug described in
@@ -77,28 +77,28 @@ RUN apt-get update \
     xsltproc \
  && rm -rf /var/lib/apt/lists/* \
  && asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git \
- && asdf install erlang 25.0.3 \
- && asdf global erlang 25.0.3 \
+ && asdf install erlang 25.2.3 \
+ && asdf global erlang 25.2.3 \
  && rm -rf /tmp/*
 
 # Elixir
 RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
- && asdf install elixir 1.13.0 \
- && asdf global elixir 1.13.0 \
+ && asdf install elixir 1.14.3-otp-25 \
+ && asdf global elixir 1.14.3-otp-25 \
  && mix local.hex --force \
  && mix local.rebar --force \
  && rm -rf /tmp/*
- 
+
  # Node.js
  RUN asdf plugin-add nodejs \
-   && asdf install nodejs 16.17.0 \
-   && asdf global nodejs 16.17.0 \
+   && asdf install nodejs 18.14.2 \
+   && asdf global nodejs 18.14.2 \
    && rm -rf /tmp/*
 
  # Rust
  RUN asdf plugin-add rust \
-   && asdf install rust 1.63.0 \
-   && asdf global rust 1.63.0 \
+   && asdf install rust 1.65.0 \
+   && asdf global rust 1.65.0 \
    && rm -rf /tmp/*
 
 # Multimedia libraries
@@ -122,6 +122,8 @@ RUN apt-get update \
     portaudio19-dev \
     libsrtp2-dev \
     libmp3lame-dev \
+    # inotify-tools for Phoenix live reload \
+    inotify-tools \
  && rm -rf /var/lib/apt/lists/* \
  # fdk-aac
  && cd /tmp/ \
@@ -131,6 +133,11 @@ RUN apt-get update \
  && make && make install \
  && cd / \
  && rm -rf /tmp/*
+
+# Dockerize
+RUN wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz \
+ && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v0.6.1.tar.gz \
+ && rm dockerize-linux-amd64-v0.6.1.tar.gz
 
 # Set the entrypoint
 COPY ./docker-entrypoint.sh /
