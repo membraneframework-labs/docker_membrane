@@ -1,6 +1,6 @@
-name: Publish Image on DockerHub
+name: Build and publish images on DockerHub
 
-# Action is triggered by pushing version tag to master
+# Action is triggered by pushing version tag
 on:
   push:
     tags:
@@ -28,7 +28,7 @@ jobs:
     - name: Build and push the image
       uses: docker/build-push-action@v2
       with:
-        context: ./focal
+        context: ./jammy
         push: true
         # Set image name to membraneframeworklabs/docker_membrane:<tag_name> and update tag `:latest`
         tags: |
