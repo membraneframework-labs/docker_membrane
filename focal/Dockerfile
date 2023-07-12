@@ -6,6 +6,7 @@ SHELL ["/bin/bash", "-c"]
 # Common tools and dependencies, GCC, ASDF
 # Note: We setup locales using the snippet from `ubuntu` image readme.
 RUN apt-get update \
+ && apt-get upgrade \
  && apt-get install -y software-properties-common \
  && add-apt-repository ppa:ubuntu-toolchain-r/test -y \
  && apt-get update \
