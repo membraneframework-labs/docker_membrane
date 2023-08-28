@@ -136,7 +136,7 @@ RUN apt-get update \
 
 # Protoc and elixir-protobuf plugin
 # Installing protoc from a binary release to avoid ancient packages of ubuntu
-RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protoc-21.12-linux-x86_64.zip -O protoc.zip \
+RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v24.2/protoc-24.2-linux-x86_64.zip -O protoc.zip \
   && mkdir -p ~/.local/protoc/ \
   && unzip protoc.zip -d $HOME/.local/protoc \
   && rm protoc.zip \
