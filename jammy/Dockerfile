@@ -64,8 +64,8 @@ RUN apt-get update \
     xsltproc \
  && rm -rf /var/lib/apt/lists/* \
  && asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git \
- && asdf install erlang 25.2.3 \
- && asdf global erlang 25.2.3 \
+ && asdf install erlang 25.3.2 \
+ && asdf global erlang 25.3.2 \
  && rm -rf /tmp/*
 
 # Elixir
@@ -78,8 +78,8 @@ RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
  
 # Node.js
 RUN asdf plugin-add nodejs \
- && asdf install nodejs 16.17.0 \
- && asdf global nodejs 16.17.0 \
+ && asdf install nodejs 18.17.1 \
+ && asdf global nodejs 18.17.1 \
  && rm -rf /tmp/*
 
 # Rust
