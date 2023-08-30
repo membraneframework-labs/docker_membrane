@@ -3,7 +3,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/membraneframeworklabs/docker_membrane)][membraneframeworklabs]
 [![GitHub forks](https://img.shields.io/github/forks/membraneframework/docker-membrane?style=social)][github]
 
-A Docker image based on Ubuntu, with Erlang, Elixir, Node.js and libraries necessary to test and run the [Membrane Framework].
+A Docker image based on Ubuntu, with Erlang, Elixir, Node.js, Rust and libraries necessary to test and run the [Membrane Framework].
 
 Image has been moved to [membraneframeworklabs]
 
@@ -11,7 +11,8 @@ Image has been moved to [membraneframeworklabs]
 
 This image comes in many flavours, based on different Ubuntu releases and package versions:
 
-- `latest`, `focal` - based on Ubuntu 20.04
+- `latest`, `jammy` - based on Ubuntu 22.04
+- `focal` - based on Ubuntu 20.04
 - `bionic` - based on Ubuntu 18.04, **deprecated**
 
 ## Package versions
@@ -32,6 +33,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | libsrtp2  | -             | 2.3.0  	         | 2.4.2            |
 | libnice   | -             | master (833c1aa) | -                |
 | libmp3lame| -             | 3.100            | 3.100            |
+| protoc    | -             | 24.2             | 24.2             |
 
 
 ### Version selection
@@ -56,8 +58,8 @@ make build
 
 Optionally, one can add the following variables:
 * `VERSION=string`, which adds the variant tag. Set to `latest` by default.
-* `FLAVOR=string`, which selects the flavor (subdirectory of this repository) to build. Set to `focal` by default.
-* `IMAGE=name`, which will override the default image name. If not specified, this is set to `membrane/membrane`
+* `FLAVOR=string`, which selects the flavor (subdirectory of this repository) to build. Set to `jammy` by default.
+* `IMAGE=name`, which will override the default image name. If not specified, this is set to `membraneframeworklabs/docker_membrane`
 
 ## Sample usage
 
