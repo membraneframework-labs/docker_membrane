@@ -130,16 +130,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
  && pip install git+https://github.com/coderanger/supervisor-stdout \
  && apt-get -y clean
 
-# Protoc and elixir-protobuf plugin
-# Installing protoc from a binary release to avoid ancient packages of ubuntu
-RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v24.2/protoc-24.2-linux-x86_64.zip -O protoc.zip \
-  && mkdir -p ~/.local/protoc/ \
-  && unzip protoc.zip -d $HOME/.local/protoc \
-  && rm protoc.zip \
-  && echo "export PATH='$PATH:$HOME/.local/protoc/bin'" >> $HOME/.bashrc \
-  && mix escript.install hex protobuf --force \
-  && asdf reshim
-
 COPY etc /etc
 COPY /etc/skel/.xinitrc /root/
 COPY usr /usr
