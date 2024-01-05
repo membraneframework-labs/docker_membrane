@@ -112,6 +112,9 @@ RUN apt-get update \
    libxcb1-dev \
    libxcb-shm0-dev \
    libxcb-xfixes0-dev \
+   libx264-dev \
+   libfreetype-dev \
+   libx265-dev \
    && rm -rf /var/lib/apt/lists/* \
    # fdk-aac
    && cd /tmp/ \
@@ -124,9 +127,30 @@ RUN apt-get update \
 
 # FFmpeg
 RUN asdf plugin add ffmpeg \
+   && export ASDF_FFMPEG_OPTIONS_EXTRA="--disable-debug \
+   --disable-doc \
+   --enable-ffplay \
+   --enable-fontconfig \
+   --enable-gpl \
+   --enable-libass \
+   --enable-libfdk_aac \
+   --enable-libmp3lame \
+   --enable-libopus \
+   --enable-libx264 \
+   --enable-libx265 \
+   --enable-libfreetype \
+   --enable-libharfbuzz \
+   --enable-nonfree \
+   --enable-openssl \
+   --enable-postproc \
+   --enable-shared \
+   --enable-small \
+   --enable-version3 \
+   --extra-libs=-ldl \
+   --extra-libs=-lpthread" \
    && asdf install ffmpeg 6.1.1 \
    && asdf global ffmpeg 6.1.1 \
-   && cp /root/.asdf/installs/ffmpeg/6.1.1/lib/pkgconfig/* /usr/lib/pkgconfig 
+   && cp -r /root/.asdf/installs/ffmpeg/6.1.1/lib/* /usr/lib
 
 # OpenGL dependencies - based on https://github.com/thewtex/docker-opengl
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
