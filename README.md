@@ -19,7 +19,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | Package   | bionic        | focal            | jammy            |
 | --------- | ------------- | -----------------|------------------|
 | Erlang    | 21.3 and 22.2 | 25.2.3           | 26.0.2           |
-| Elixir    | 1.9.4         | 1.14.3           | 1.15.5           |
+| Elixir    | 1.9.4         | 1.14.3           | 1.16.0           |
 | Node.js   | -             | 14.16.1          | 16.17.0          |
 | Rust      | -             | 1.65.0           | 1.70.0           |
 | FFmpeg    | 4.2.2         | 4.2.2            | 4.4.2            |
@@ -42,7 +42,7 @@ These images contain multiple (Erlang, Elixir, Node.js) versions, managed with [
 
 | Image  | Erlang | Elixir | Node.js |  Rust  |
 | ------ | -------| ------ | ------- | ------ |
-| jammy  | 26.0.2 | 1.15.5 | 16.17.0 | 1.63.0 |
+| jammy  | 26.0.2 | 1.16.0 | 16.17.0 | 1.63.0 |
 | focal  | 25.2.3 | 1.14.3 | 16.17.0 | 1.63.0 |
 | bionic | 22.2   | 1.9.4  |    -    |    -   |
 
