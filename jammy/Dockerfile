@@ -115,6 +115,8 @@ RUN apt-get update \
    libx264-dev \
    libfreetype-dev \
    libx265-dev \
+   libsrt-openssl-dev \
+   srt-tools \
    && rm -rf /var/lib/apt/lists/* \
    # fdk-aac
    && cd /tmp/ \
