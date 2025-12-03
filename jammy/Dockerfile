@@ -40,17 +40,27 @@ RUN apt-get update \
    yasm \
    zlib1g-dev \
    && rm -rf /var/lib/apt/lists/* \
-   && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
-   && git clone https://github.com/asdf-vm/asdf.git /root/.asdf -b v0.8.0
+   && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
-ENV LANG en_US.utf8
+# ASDF
+ARG ASDF_VERSION=v0.18.0
+ARG ASDF_TARBALL=asdf-${ASDF_VERSION}-linux-386.tar.gz
+
+RUN \
+    wget "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/${ASDF_TARBALL}" \
+    && wget "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/${ASDF_TARBALL}.md5" \
+    && DOWNLOADED_MD5="$(cat ${ASDF_TARBALL}.md5)" \
+    && CALCULATED_MD5="$(md5sum '${ASDF_TARBALL}' | awk '{print $1}')" \
+    && [ "$DOWNLOADED_MD5" != "$CALCULATED_MD5" ] \
+    && tar -xvzf ${ASDF_TARBALL} \
+    && mv asdf /usr/local/bin \
+    && rm "${ASDF_TARBALL}" \
+    && rm "${ASDF_TARBALL}.md5"
+
+ENV LANG=en_US.utf8
 
 # Add ASDF to PATH
-# Note: This is essentialy an intersection of what the asdf init script does and what
-# we need during container build phase. The init script does check whether these paths
-# are present in PATH variable before adding new ones. We are going to fully initialise
-# asdf in the entrypoint script.
-ENV PATH /root/.asdf/bin:/root/.asdf/shims:$PATH
+ENV PATH=/root/.asdf/bin:/root/.asdf/shims:$PATH
 
 # Erlang
 RUN apt-get update \
@@ -70,31 +80,28 @@ RUN apt-get update \
    m4 \
    unixodbc-dev \
    xsltproc \
-   && rm -rf /var/lib/apt/lists/* \
-   && asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git \
-   && asdf install erlang 27.3 \
-   && asdf global erlang 27.3 \
-   && rm -rf /tmp/*
+   && rm -rf /var/lib/apt/lists/*
+
+RUN asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git \
+   && asdf install erlang 28.1 \
+   && asdf set -u erlang 28.1
 
 # Elixir
-RUN asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git \
-   && asdf install elixir 1.18.3-otp-27 \
-   && asdf global elixir 1.18.3-otp-27 \
+RUN asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git \
+   && asdf install elixir 1.19.3-otp-28 \
+   && asdf set -u elixir 1.19.3-otp-28 \
    && mix local.hex --force \
-   && mix local.rebar --force \
-   && rm -rf /tmp/*
+   && mix local.rebar --force
 
 # Node.js
-RUN asdf plugin-add nodejs \
-   && asdf install nodejs 18.17.1 \
-   && asdf global nodejs 18.17.1 \
-   && rm -rf /tmp/*
+RUN asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git \
+   && asdf install nodejs 24.11.1 \
+   && asdf set -u nodejs 24.11.1
 
 # Rust
-RUN asdf plugin-add rust \
-   && asdf install rust 1.70.0 \
-   && asdf global rust 1.70.0 \
-   && rm -rf /tmp/*
+RUN asdf plugin add rust https://github.com/asdf-community/asdf-rust.git \
+   && asdf install rust 1.91.1 \
+   && asdf set -u rust 1.91.1
 
 # Multimedia libraries
 RUN apt-get update \
@@ -150,9 +157,9 @@ RUN asdf plugin add ffmpeg \
    --enable-version3 \
    --extra-libs=-ldl \
    --extra-libs=-lpthread" \
-   && asdf install ffmpeg 6.1.1 \
-   && asdf global ffmpeg 6.1.1 \
-   && cp -r /root/.asdf/installs/ffmpeg/6.1.1/lib/* /usr/lib
+   && asdf install ffmpeg 7.1.3 \
+   && asdf set -u ffmpeg 7.1.3 \
+   && cp -r /root/.asdf/installs/ffmpeg/7.1.3/lib/* /usr/lib
 
 # OpenGL dependencies - based on https://github.com/thewtex/docker-opengl
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -170,8 +177,8 @@ COPY etc /etc
 COPY /etc/skel/.xinitrc /root/
 COPY usr /usr
 
-ENV DISPLAY :0
-ENV XDG_RUNTIME_DIR /tmp
+ENV DISPLAY=:0
+ENV XDG_RUNTIME_DIR=/tmp
 
 # Set the entrypoint
 COPY ./docker-entrypoint.sh /
