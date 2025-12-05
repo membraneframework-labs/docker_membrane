@@ -18,7 +18,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 
 | Package   | bionic        | focal            | jammy            |
 | --------- | ------------- | -----------------|------------------|
-| Erlang    | 21.3 and 22.2 | 25.2.3           | 28.1             |
+| Erlang    | 22.2          | 25.2.3           | 28.1             |
 | Elixir    | 1.9.4         | 1.14.3           | 1.19.3           |
 | Node.js   | -             | 14.16.1          | 24.11.1          |
 | Rust      | -             | 1.65.0           | 1.91.1           |
@@ -33,18 +33,6 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | libnice   | -             | master (833c1aa) | -                |
 | libmp3lame| -             | 3.100            | 3.100            |
 
-
-### Version selection
-
-These images contain multiple (Erlang, Elixir, Node.js) versions, managed with [asdf]. You can specify which one should be selected by running: `asdf global erlang <version>` or `asdf global elixir <version>` in your script.
-
-### Default versions:
-
-| Image  | Erlang | Elixir | Node.js |  Rust  |
-| ------ | -------| ------ | ------- | ------ |
-| jammy  | 28.1   | 1.19.3 | 24.11.1 | 1.91.1 |
-| focal  | 25.2.3 | 1.14.3 | 16.17.0 | 1.63.0 |
-| bionic | 22.2   | 1.9.4  |    -    |    -   |
 
 ## Building the image
 
