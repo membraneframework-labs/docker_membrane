@@ -18,18 +18,18 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 
 | Package   | bionic        | focal            | jammy            |
 | --------- | ------------- | -----------------|------------------|
-| Erlang    | 21.3 and 22.2 | 25.2.3           | 27.3             |
-| Elixir    | 1.9.4         | 1.14.3           | 1.18.3           |
-| Node.js   | -             | 14.16.1          | 16.17.0          |
-| Rust      | -             | 1.65.0           | 1.70.0           |
-| FFmpeg    | 4.2.2         | 4.2.2            | 4.4.2            |
+| Erlang    | 21.3 and 22.2 | 25.2.3           | 28.1             |
+| Elixir    | 1.9.4         | 1.14.3           | 1.19.3           |
+| Node.js   | -             | 14.16.1          | 24.11.1          |
+| Rust      | -             | 1.65.0           | 1.91.1           |
+| FFmpeg    | 4.2.2         | 4.2.2            | 7.1.3            |
 | SDL2      | ?             | ?                | 2.0.20           |
 | FDK AAC   | 2.0           | 2.0              | 2.0.0            |
 | Portaudio | 19.6.0        | 19.6.0           | 19.6.0           |
 | MAD       | 0.15.1        | 0.15.1           | 0.15.1           |
 | FLAC      | 1.3.2         | 1.3.2            | 1.3.3            |
 | Opus      | 1.1.2         | 1.1.2            | 1.3.1            |
-| libsrtp2  | -             | 2.3.0  	         | 2.4.2            |
+| libsrtp2  | -             | 2.3.0  	       | 2.4.2            |
 | libnice   | -             | master (833c1aa) | -                |
 | libmp3lame| -             | 3.100            | 3.100            |
 
@@ -42,7 +42,7 @@ These images contain multiple (Erlang, Elixir, Node.js) versions, managed with [
 
 | Image  | Erlang | Elixir | Node.js |  Rust  |
 | ------ | -------| ------ | ------- | ------ |
-| jammy  | 27.3   | 1.18.3 | 16.17.0 | 1.63.0 |
+| jammy  | 28.1   | 1.19.3 | 24.11.1 | 1.91.1 |
 | focal  | 25.2.3 | 1.14.3 | 16.17.0 | 1.63.0 |
 | bionic | 22.2   | 1.9.4  |    -    |    -   |
 
