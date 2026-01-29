@@ -46,16 +46,21 @@ RUN apt-get update \
 ARG ASDF_VERSION=v0.18.0
 ARG ASDF_TARBALL=asdf-${ASDF_VERSION}-linux-386.tar.gz
 
-RUN \
-    wget "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/${ASDF_TARBALL}" \
-    && wget "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/${ASDF_TARBALL}.md5" \
-    && DOWNLOADED_MD5="$(cat ${ASDF_TARBALL}.md5)" \
-    && CALCULATED_MD5="$(md5sum '${ASDF_TARBALL}' | awk '{print $1}')" \
-    && [ "$DOWNLOADED_MD5" != "$CALCULATED_MD5" ] \
-    && tar -xvzf ${ASDF_TARBALL} \
-    && mv asdf /usr/local/bin \
-    && rm "${ASDF_TARBALL}" \
-    && rm "${ASDF_TARBALL}.md5"
+RUN \ 
+    git clone https://github.com/asdf-vm/asdf.git -b v0.18.0 \
+    && make -f asdf/Makefile
+    && mv asdf /usr/local/bin/
+
+#RUN \
+    #wget "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/${ASDF_TARBALL}" \
+    #&& wget "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/${ASDF_TARBALL}.md5" \
+    #&& DOWNLOADED_MD5="$(cat ${ASDF_TARBALL}.md5)" \
+    #&& CALCULATED_MD5="$(md5sum '${ASDF_TARBALL}' | awk '{print $1}')" \
+    #&& [ "$DOWNLOADED_MD5" != "$CALCULATED_MD5" ] \
+    #&& tar -xvzf ${ASDF_TARBALL} \
+    #&& mv asdf /usr/local/bin \
+    #&& rm "${ASDF_TARBALL}" \
+    #&& rm "${ASDF_TARBALL}.md5"
 
 ENV LANG=en_US.utf8
 
