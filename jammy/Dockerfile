@@ -1,7 +1,18 @@
+# Install ASDF with golang
+FROM golang:1.24-alpine AS asdf_builder
+
+RUN go install github.com/asdf-vm/asdf/cmd/asdf@v0.18.0
+
 FROM ubuntu:22.04
 
 # We are using bash because ASDF prefers it.
 SHELL ["/bin/bash", "-c"]
+
+# ASDF
+COPY --from=asdf_builder /go/bin/asdf /usr/local/bin/asdf
+
+# Add ASDF to PATH
+ENV PATH=/root/.asdf/bin:/root/.asdf/shims:$PATH
 
 # Common tools and dependencies, GCC, ASDF
 # Note: We setup locales using the snippet from `ubuntu` image readme.
@@ -43,13 +54,14 @@ RUN apt-get update \
    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
 # ASDF
-ARG ASDF_VERSION=v0.18.0
-ARG ASDF_TARBALL=asdf-${ASDF_VERSION}-linux-386.tar.gz
+#ARG ASDF_VERSION=v0.18.0
+#ARG ASDF_TARBALL=asdf-${ASDF_VERSION}-linux-386.tar.gz
 
-RUN \ 
-    git clone https://github.com/asdf-vm/asdf.git -b v0.18.0 \
-    && make -f asdf/Makefile
-    && mv asdf /usr/local/bin/
+#RUN \ 
+    #git clone https://github.com/asdf-vm/asdf.git -b v0.18.0 \
+    #&& make -C asdf \
+    #&& mv bin/asdf /usr/local/bin/ \
+    #&& rm -rf asdf
 
 #RUN \
     #wget "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/${ASDF_TARBALL}" \
@@ -64,8 +76,6 @@ RUN \
 
 ENV LANG=en_US.utf8
 
-# Add ASDF to PATH
-ENV PATH=/root/.asdf/bin:/root/.asdf/shims:$PATH
 
 # Erlang
 RUN apt-get update \
