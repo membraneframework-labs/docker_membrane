@@ -1,7 +1,9 @@
 # Install ASDF with golang
 FROM golang:1.24-alpine AS asdf_builder
 
-RUN go install github.com/asdf-vm/asdf/cmd/asdf@v0.18.0
+ARG ASDF_VERSION=v0.18.0
+
+RUN go install github.com/asdf-vm/asdf/cmd/asdf@${ASDF_VERSION}
 
 FROM ubuntu:22.04
 
@@ -53,29 +55,7 @@ RUN apt-get update \
    && rm -rf /var/lib/apt/lists/* \
    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
-# ASDF
-#ARG ASDF_VERSION=v0.18.0
-#ARG ASDF_TARBALL=asdf-${ASDF_VERSION}-linux-386.tar.gz
-
-#RUN \ 
-    #git clone https://github.com/asdf-vm/asdf.git -b v0.18.0 \
-    #&& make -C asdf \
-    #&& mv bin/asdf /usr/local/bin/ \
-    #&& rm -rf asdf
-
-#RUN \
-    #wget "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/${ASDF_TARBALL}" \
-    #&& wget "https://github.com/asdf-vm/asdf/releases/download/${ASDF_VERSION}/${ASDF_TARBALL}.md5" \
-    #&& DOWNLOADED_MD5="$(cat ${ASDF_TARBALL}.md5)" \
-    #&& CALCULATED_MD5="$(md5sum '${ASDF_TARBALL}' | awk '{print $1}')" \
-    #&& [ "$DOWNLOADED_MD5" != "$CALCULATED_MD5" ] \
-    #&& tar -xvzf ${ASDF_TARBALL} \
-    #&& mv asdf /usr/local/bin \
-    #&& rm "${ASDF_TARBALL}" \
-    #&& rm "${ASDF_TARBALL}.md5"
-
 ENV LANG=en_US.utf8
-
 
 # Erlang
 RUN apt-get update \
