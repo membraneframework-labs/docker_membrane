@@ -19,7 +19,7 @@ This image comes in many flavours, based on different Ubuntu releases and packag
 | Package   | bionic        | focal            | jammy            |
 | --------- | ------------- | -----------------|------------------|
 | Erlang    | 22.2          | 25.2.3           | 28.1             |
-| Elixir    | 1.9.4         | 1.14.3           | 1.19.3           |
+| Elixir    | 1.9.4         | 1.14.3           | 1.20.3           |
 | Node.js   | -             | 14.16.1          | 24.11.1          |
 | Rust      | -             | 1.65.0           | 1.91.1           |
 | FFmpeg    | 4.2.2         | 4.2.2            | 7.1.3            |
