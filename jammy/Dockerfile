@@ -83,8 +83,8 @@ RUN asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git \
 
 # Elixir
 RUN asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git \
-   && asdf install elixir 1.19.3-otp-28 \
-   && asdf set -u elixir 1.19.3-otp-28 \
+   && asdf install elixir 1.20.3-otp-28 \
+   && asdf set -u elixir 1.20.3-otp-28 \
    && mix local.hex --force \
    && mix local.rebar --force
 
